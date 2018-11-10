@@ -31,8 +31,26 @@ class GameViewController: UIViewController {
             view.showsNodeCount = true
         }
         
-        var tt = Test()
+        /*
+        let heap = AlgoArray()
+        heap.addItem(value: 1)
+        heap.addItem(value: 5)
+        heap.addItem(value: 2)
+        heap.addItem(value: 3)
+        heap.addItem(value: 0)
+        heap.addItem(value: 10)
+        heap.addItem(value: 18)
+        heap.addItem(value: 3)
+        heap.addItem(value: 3)
+        heap.addItem(value: 0)
+        heap.addItem(value: 10)
+        heap.addItem(value: 18)
+        heap.addItem(value: 3)
+        heap.printme()
+        */
         
+        
+        /*
         let heap = Heap()
         heap.addItem(val: 1)
         heap.addItem(val: 5)
@@ -59,6 +77,54 @@ class GameViewController: UIViewController {
         heap.print()
         print(heap.getTopItem())
         heap.print()
+        */
+        
+        /*
+        let tree = BinarySearchTree<Int>(value: 7)
+        tree.insert(value: 5)
+        tree.insert(value: 10)
+        tree.insert(value: 1)
+        tree.insert(value: 9)
+       
+        
+        print("TREE")
+        let result = tree.search(value: 9)
+        print(result?.value)
+        let result2 = tree.search(value: 15)
+        print(result2)
+        let result3 = tree.search(value: 10)
+        print(result3?.value)
+        
+        print(tree.toArray())
+        print(tree.height())
+        
+        */
+        
+        print("AVL------------------")
+        let avl = AVLNode(value: 6)
+        avl.treeRoot = avl
+        avl.insert(value: 5)
+        avl.insert(value: 3)
+        avl.insert(value: 1)
+        avl.insert(value: 7)
+        avl.insert(value: 0)
+        avl.insert(value: 4)
+        
+        avl.left?.printTree()
+        avl.rotateRight(node: avl.getRoot().left)
+        avl.printTree()
+        avl.rotateLeft(node: avl.getRoot().left)
+        avl.printTree()
+        print("DONE")
+        //print("-----------------")
+        //avl.printme()
+        
+        //print(avl.getHeight(node: avl))
+        //print(avl.height)
+        
+        
+        print(avl.toArray())
+        
     }
 
     override var shouldAutorotate: Bool {

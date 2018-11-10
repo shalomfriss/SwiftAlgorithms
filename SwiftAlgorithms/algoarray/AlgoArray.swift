@@ -10,20 +10,27 @@ import Foundation
 
 class AlgoArray
 {
-    private var items:NSMutableArray
+    private var items:[ArrayItem]
     private var uuidToIndex:[String:Int]
     
     init()
     {
-        self.items = NSMutableArray()
+        self.items = [ArrayItem]()
         self.uuidToIndex = [String:Int]()
     }
     
-    public func addItem(value:Float, key:String?)
+    public func addItem(value:Float, key:String? = nil)
     {
-        let item = ArrayItem(aKey: key!, aValue: value)
+        var item:ArrayItem
+        if(key != nil) {
+            item = ArrayItem(aValue: value, aKey: key!)
+        }
+        else {
+            item = ArrayItem(aValue: value)
+        }
+        
         self.uuidToIndex[item.id] = self.items.count
-        self.items.add(item)
+        self.items.append(item)
     }
     
     public func removeItem(item:ArrayItem) {
@@ -32,8 +39,15 @@ class AlgoArray
         {
             return
         }
-        
-        self.items.removeObject(at: ind!)
+        self.items.remove(at: ind!)
         self.uuidToIndex.removeValue(forKey: item.id)
+    }
+    
+    public func printme() {
+        for i in 0..<self.items.count {
+            let item = items[i]
+            print(item.value)
+        }
+        
     }
 }

@@ -11,8 +11,9 @@ import Foundation
 class ArrayItem : Comparable
 {
     public var value:Float
-    public var key:String
+    public var key:String?
     public var id:String
+    
     init()
     {
         self.value = 0
@@ -20,11 +21,13 @@ class ArrayItem : Comparable
         self.id = UUID().uuidString
     }
     
-    init(aKey:String, aValue:Float)
+    init(aValue:Float, aKey:String? = nil)
     {
         self.value = aValue
-        self.key = aKey
         self.id = UUID().uuidString
+        if(aKey != nil) {
+            self.key = aKey!
+        }
     }
 }
 
