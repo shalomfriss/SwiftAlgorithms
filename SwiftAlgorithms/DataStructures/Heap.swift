@@ -1,202 +1,231 @@
 //
-//  heap.swift
+//  Heap.swift
 //  SwiftAlgorithms
 //
-//  Created by Shalom Friss on 10/21/17.
-//  Copyright © 2017 Shalom Friss. All rights reserved.
+//  Created by user on 11/11/18.
+//  Copyright © 2018 Shalom Friss. All rights reserved.
 //
 
 import Foundation
 
-/**
-     Heap implementation.  Default is a min heap.
-*/
-class Heap {
+//Max heap meaning the max item is at index 0
+class Heap<T:Comparable> {
+    var items = [T]()
     
-    static var MIN:String = "min"
-    static var MAX:String = "max"
+    init() {}
     
-    private var items:[Double]
-    private var mode:String = Heap.MIN
-    
-    init()
-    {
-        Swift.print("Heap")
-        self.items = [Double]()
+    public func insert(value:T) {
+        items.append(value)
+        
+        let index = items.count - 1
+        shiftUp(index: index)
     }
     
-    public func getTopItem() -> Double
-    {
-        let item = self.items.popLast()
-        let ret = self.items[0]
-        self.items[0] = item!
-        self.heapify()
-        return ret
+    public func remove() -> T? {
+        return nil
     }
     
-    public func print()
-    {
-        Swift.print(self.items)
-    }
-    
-    /**
-         A comparison function to abstract from comparison in order to support min and
-         max heaps
-         @param val1:Double - a value to compare
-         @param val2:Double - a secomd value to compare
-     */
-    private func compare(val1:Double, val2:Double) -> Int
-    {
-        if(self.mode == Heap.MIN)
-        {
-            if(val1 < val2)
-            {
-                return 1
-            }
-            else if(val1 == val2)
-            {
-                return 0
-            }
-            else
-            {
-                return -1
-            }
-        }
-        else
-        {
-            if(val1 > val2)
-            {
-                return 1
-            }
-            else if(val1 == val2)
-            {
-                return 0
-            }
-            else
-            {
-                return -1
-            }
-        }
-    }
-    
-    public func addItem(val:Double)
-    {
-        self.items.append(val)
-        
-        //If not parent we're at the top
-        guard let parent = getParent(index: self.items.count - 1)
-        else {
-            return
-        }
-        
-        var curIndex = self.items.count - 1
-        var parIndex = Int(floor((Double(curIndex) - 1)/2))
-        
-        var vala = val
-        var valb = parent
-        
-        while(self.compare(val1: vala, val2: valb) == 1)
-        {
-            self.swap(index1: curIndex, index2: parIndex)
-            curIndex = parIndex
-            parIndex = Int(floor((Double(curIndex) - 1)/2))
-            if(parIndex < 0)
-            {
-                return
-            }
-            Swift.print(parIndex)
-            vala = self.items[curIndex]
-            valb = self.items[parIndex]
-        }
-        
-        //self.heapify(index: self.items.count - 1)
-    }
-    
-    private func swap(index1:Int, index2:Int)
-    {
-        let temp = self.items[index1]
-        self.items[index1] = self.items[index2]
-        self.items[index2] = temp
-    }
-    
-    public func heapify()
-    {
-        var cur = 0
-        let el = self.items[cur]
-        var childs = self.getChildren(index: cur)
-        var greaterChild:Double!
-        var greaterIndex:Int!
-        
-        while(childs.0 != nil || childs.1 != nil)   //At least one isn't nil
-        {
-            
-            if(childs.0 != nil && childs.1 != nil)  //Neither are nil
-            {
-                greaterChild = self.compare(val1: childs.0!, val2: childs.1!) == 1 ? childs.0! : childs.1!
-                greaterIndex = self.compare(val1: childs.0!, val2: childs.1!) == 1 ? cur * 2 + 1 : cur * 2 + 2
-            }
-            else    //One of them is nil
-            {
-                greaterChild = childs.0 != nil ? childs.0! : childs.1!
-                greaterIndex = childs.0 != nil ? cur * 2 + 1 : cur * 2 + 2
-            }
-            
-            if(self.compare(val1: greaterChild, val2: el) == 1)
-            {
-                self.swap(index1: cur, index2: greaterIndex)
-                cur = greaterIndex
-                childs = self.getChildren(index: cur)
-            }
-            else
-            {
-                return
-            }
-            
-        }
-        
-        
-    }
-    
-    
-    
-    
-    
-    /**
-         Get the parent of the object at index
-     */
-    public func getParent(index:Int) -> Double?
-    {
-        
-        if(index == 0)
-        {
+    public func removeRoot() ->T? {
+        if(items.count == 0) {
             return nil
         }
         
-        let ind = Int(floor((Double(index) - 1)/2))
-        let ret:Double = self.items[ind]
-        return ret
+        self.swap(i: 0, j: items.count - 1)
+        let root = items.removeLast()
         
-        //return Double(self.items[floor((index - 1)/2)])
+        self.shiftDown(index: 0, until: items.count)
+        return root
+    }
+    
+    public func swap(i:Int, j:Int) {
+        let temp = items[i]
+        items[i] = items[j]
+        items[j] = temp
+    }
+    
+    public func removeAtIndex(index:Int) -> T? {
+        swap(i: index, j: items.count - 1)
+        
+        let val = items[index]
+        let returnVal = items.removeLast()
+        if let parentValue = getParent(index: index) {
+            if(val > parentValue) {
+                shiftUp(index: index)
+            } else {
+                shiftDown(index: index, until: items.count)
+            }
+        }
+        
+        return returnVal
+    }
+    
+    public func replace(index:Int, value:T) {
+        items[index] = value
+        if let parentValue = getParent(index: index) {
+            if(value > parentValue) {
+                shiftUp(index: index)
+            } else {
+                shiftDown(index: index, until: items.count)
+            }
+        }
+    }
+    
+    //returns the index of the value
+    public func search(value:T) -> Int? {
+        let queue = Queue<Int>()
+        print("Search for: \(value)")
+        
+        queue.push(item: 0)
+        queue.push(item: -1)
+        
+        var keepSearching = false
+        while(queue.notEmpty())  {
+            let item = queue.pop()
+            
+            //Weve reached a level
+            if(item == -1) {
+                if(keepSearching == false) {
+                    return nil
+                }
+                keepSearching = false
+                queue.push(item: -1)
+                continue
+            }
+            
+            let heapVal = items[item!]
+            if(value == heapVal) {
+                return item
+            }
+            
+            //as long the the value is smaller then the larges elements keep seraching
+            if(value < heapVal) {
+                keepSearching = true
+            }
+            
+            if let _ = getLeft(index: item!) {
+                queue.push(item: getLeftIndex(index: item!))
+            }
+            
+            if let _ = getRight(index: item!) {
+                queue.push(item: getRightIndex(index: item!))
+            }
+        }
+        
+        return nil
+    }
+    
+    //Swap this index with it's parent
+    public func swapUp(index:Int) {
+        if let parent = getParent(index: index) {
+            items[getParentIndex(index: index)] = items[index]
+            items[index] = parent
+        }
+    }
+    
+    //The heap shift up operation
+    public func shiftUp(index:Int) {
+        var index = index
+        var parentValue = getParent(index: index)
+        let value = items[index]
+        
+        while(parentValue != nil) {
+            if(value > parentValue!) {
+                swapUp(index: index)
+            } else {
+                return
+            }
+            index = getParentIndex(index: index)
+            parentValue = getParent(index: index)
+        }
+    }
+    
+    //Shift down from index until the specified index
+    public func shiftDown(index:Int, until:Int) {
+        if(index == until) { return }
+        
+        let theLeftIndex = getLeftIndex(index: index)
+        let theRightIndex = getRightIndex(index: index)
+        let theLeft = theLeftIndex < until ? getLeft(index: index) : nil
+        let theRight = theRightIndex < until ? getRight(index: index) : nil
+        let value = items[index]
+        
+        if(theLeft != nil && theRight != nil) {
+            let swapIndex = theLeft! > theRight! ? theLeftIndex : theRightIndex
+            let swapValue = theLeft! > theRight! ? theLeft! : theRight!
+            if(swapValue > value) {
+                swapUp(index: swapIndex)
+                shiftDown(index: swapIndex, until: until)
+            }
+        } else if(theLeft != nil && theLeft! > value){
+            swapUp(index: theLeftIndex)
+        } else if(theRight != nil && theRight! > value) {
+            swapUp(index: theRightIndex)
+        }
         
     }
     
-    public func getChildren(index:Int) -> (Double?, Double?)
-    {
-        let i1 = 2*index + 1
-        let i2 = 2*index + 2
-        
-        if(i1 > self.items.count - 1)
-        {
-            return (nil, nil)
+    public func buildHeapUsingFloyd(array:[T]) {
+        let elements = array
+        for i in stride(from: elements.count/2 - 1, through: 0, by: -1) {
+            shiftDown(index: i, until: elements.count)
+        }
+    }
+    
+    public func buildHeap(array:[T]) {
+        for item in array {
+            insert(value: item)
+        }
+    }
+    
+    
+    public func peek() -> T? {
+        return items[0]
+    }
+    
+    
+    
+    /************************************/
+    //INDEX UTILITY
+    /************************************/
+    public func getParentIndex(index:Int) -> Int {
+        return Int(floor((Double(index) - 1)/2))
+    }
+    
+    public func getLeftIndex(index:Int) -> Int {
+        return 2*index + 1
+    }
+    
+    public func getRightIndex(index:Int) -> Int {
+        return 2*index + 2
+    }
+    
+    public func getParent(index:Int) -> T? {
+        let pIndex = getParentIndex(index: index)
+        if(pIndex < 0 || pIndex > items.count - 1) {
+            return nil
         }
         
-        if(i2 > self.items.count - 1)
-        {
-            return (self.items[i1], nil)
+        return items[pIndex]
+    }
+    
+    public func getLeft(index:Int) -> T? {
+        let lIndex = getLeftIndex(index: index)
+        if(lIndex < 0 || lIndex > items.count - 1) {
+            return nil
         }
         
-        return (self.items[i1], self.items[i2])
-        
-        
+        return items[lIndex]
+    }
+    
+    public func getRight(index:Int) -> T? {
+        let rIndex = getRightIndex(index: index)
+        if(rIndex < 0 || rIndex > items.count - 1) {
+            return nil
+        }
+        return items[rIndex]
+    }
+    
+    public func printme() {
+        print(self.items)
     }
 }

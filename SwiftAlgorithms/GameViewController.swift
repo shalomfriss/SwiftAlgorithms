@@ -100,21 +100,62 @@ class GameViewController: UIViewController {
         
         */
         
+        
+        /*
+        let avlTree = AVLTree<Int>()
+        avlTree.root = avlTree.insert(node: nil, key: 5)
+        avlTree.insert(node: avlTree.root, key: 3)
+        avlTree.insert(node: avlTree.root, key: 8)
+        avlTree.insert(node: avlTree.root, key: 1)
+        avlTree.printme()
+        */
+        
+        print("GO")
+        let heap = Heap<Int>()
+        heap.insert(value: 3)
+        heap.insert(value: 5)
+        heap.insert(value: 7)
+        heap.insert(value: 2)
+        heap.insert(value: 9)
+        
+        heap.printme()
+        heap.removeRoot()
+        heap.printme()
+        
+        heap.insert(value: 4)
+        heap.printme()
+        
+        heap.insert(value: 10)
+        heap.printme()
+        
+        print(heap.search(value: 10))
+        print(heap.search(value: 2))
+        print(heap.search(value: 5))
+        print(heap.search(value: 3))
+        print(heap.search(value: 4))
+        print("Done")
+        
+        
+        let arr = [2, 10, 1,4,7,3,5,9,6]
+        let hs = HeapSort(array: arr)
+        hs.heap.printme()
+        /*
         print("AVL------------------")
         let avl = AVLNode(value: 6)
-        avl.treeRoot = avl
         avl.insert(value: 5)
         avl.insert(value: 3)
         avl.insert(value: 1)
         avl.insert(value: 7)
         avl.insert(value: 0)
         avl.insert(value: 4)
+        */
         
-        avl.left?.printTree()
+        /*
         avl.rotateRight(node: avl.getRoot().left)
         avl.printTree()
         avl.rotateLeft(node: avl.getRoot().left)
         avl.printTree()
+        */
         print("DONE")
         //print("-----------------")
         //avl.printme()
@@ -123,7 +164,7 @@ class GameViewController: UIViewController {
         //print(avl.height)
         
         
-        print(avl.toArray())
+        //print(avl.toArray())
         
     }
 

@@ -29,7 +29,6 @@ class AVLNodeTests: XCTestCase {
  */
     func testRotateRight() {
         let avl = AVLNode(value: 6)
-        avl.treeRoot = avl
         avl.insert(value: 5)
         avl.insert(value: 3)
         avl.insert(value: 1)

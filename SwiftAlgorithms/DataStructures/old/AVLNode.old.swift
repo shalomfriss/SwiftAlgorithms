@@ -9,7 +9,6 @@
 import Foundation
 class AVLNode<T:Comparable> {
     
-    public var treeRoot:AVLNode!
     
     public var value:T
     public var parent:AVLNode?
@@ -65,9 +64,9 @@ class AVLNode<T:Comparable> {
             } else {
                 left = AVLNode(value: value)
                 left?.parent = self
-                left?.treeRoot = self.treeRoot
-                //printme(aNode: treeRoot)
-                updateHeightUpwards(node: left)
+                balance(node: self)
+                printTree()
+                
             }
         } else {
             if let rightChild = right {
@@ -75,27 +74,18 @@ class AVLNode<T:Comparable> {
             } else {
                 right = AVLNode(value: value)
                 right?.parent = self
-                right?.treeRoot = self.treeRoot
-                //printme(aNode: treeRoot)
-                updateHeightUpwards(node: right)
+                balance(node: self)
+                printTree()
+                
             }
         }
         
-        if let parent = self.parent {
-            //balance(node: parent)
-        }
+        
+        updateHeightUpwards(node: self)
+        
+        
         
        
-        //var parent = self.parent
-        //balance(node: parent)
-        /*
-        while(parent != nil){
-            if(abs(lrDiff(node: parent!)) > 1) {
-                balance(node: parent)
-            }
-            parent = parent?.parent
-        }
-        */
     }
     
     public func getBalance() -> Int {
@@ -108,7 +98,7 @@ class AVLNode<T:Comparable> {
         }
         
         return max(getHeight(node: node.left), getHeight(node: node.right)) + 1
-
+        
     }
     
     public func search(value: T) -> AVLNode? {
@@ -156,12 +146,13 @@ class AVLNode<T:Comparable> {
         
     }
     
-    //MARK:- Balance related
+    //MARK:- BALANCE
     private func lrDiff(node:AVLNode) -> Int {
         let leftHeight = node.left?.height ?? 0
         let rightHeight = node.right?.height ?? 0
         //return leftHeight - rightHeight
         
+        //return getHeight(node: node)
         return getHeight(node: node.left) - getHeight(node: node.right)
     }
     
@@ -177,21 +168,57 @@ class AVLNode<T:Comparable> {
         }
     }
     
-    
-    /*
-     
-      a
-     / \
-    b   e
-   /
-  c
- /
-d
-     
-     
-     
-     */
-    
+    public func balance(node:AVLNode?) {
+        guard let root = node else {
+            return
+        }
+        
+        print("===============================")
+        print(lrDiff(node: self))
+        print("===============================")
+        return
+        
+        //Left side
+        if(lrDiff(node: root) > 1) {
+            guard let pivot = root.left else {
+                print("ERROR BALANCING TREE")
+                return
+            }
+            
+            //Left-left
+            if(lrDiff(node: pivot) > 0) {
+                rotateLL(node: root)
+            }
+                //Left-right
+            else {
+                rotateLR(node: root)
+            }
+            
+        }
+            //Right side
+        else if(lrDiff(node: root) < -1) {
+            guard let pivot = root.right else {
+                print("ERROR BALANCING TREE")
+                return
+            }
+            
+            //Right-right
+            if(lrDiff(node: pivot) < 0) {
+                rotateRR(node: root)
+            }
+                //Right-left
+            else {
+                rotateRL(node: root)
+            }
+        } else {
+            balance(node: root.parent)
+        }
+        
+        
+        //updateHeightUpwards(node: root.left)
+        //updateHeightUpwards(node: root.right)
+        //balance(node: root.parent)
+    }
     
     //MARK:- rotation
     
@@ -230,8 +257,9 @@ T1   T2
         }
         node.parent = nodeLeft
         
-        
-        //updateHeightUpwards(node: node)
+        print("ROTATED RIGHT")
+        printTree()
+        updateHeightUpwards(node: node)
         
     }
     
@@ -265,7 +293,10 @@ T1   T2
         }
         node.parent = nodeRight
         
-        //updateHeightUpwards(node: node)
+        
+        print("ROTATED LEFT")
+        printTree()
+        updateHeightUpwards(node: node)
     }
     
     
@@ -295,55 +326,7 @@ T1   T2
     
     
     
-    public func balance(node:AVLNode?) {
-        guard let root = node else {
-            return
-        }
-        
-        
-        
-        print("DIFF: \(lrDiff(node: root))")
-        //Left side
-        if(lrDiff(node: root) > 1) {
-            guard let pivot = root.left else {
-                print("ERROR BALANCING TREE")
-                return
-            }
-            
-            //Left-left
-            if(lrDiff(node: pivot) > 0) {
-                rotateLL(node: root)
-            }
-                //Left-right
-            else {
-                rotateLR(node: root)
-            }
-            
-        }
-            //Right side
-        else if(lrDiff(node: root) < -1) {
-            guard let pivot = root.right else {
-                print("ERROR BALANCING TREE")
-                return
-            }
-            
-            //Right-right
-            if(lrDiff(node: pivot) < 0) {
-                rotateRR(node: root)
-            }
-            //Right-left
-            else {
-                rotateRL(node: root)
-            }
-        } else {
-            balance(node: root.parent)
-        }
-        
-        
-        //updateHeightUpwards(node: root.left)
-        //updateHeightUpwards(node: root.right)
-        //balance(node: root.parent)
-    }
+    
     
     
     

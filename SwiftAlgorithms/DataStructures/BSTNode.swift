@@ -9,33 +9,38 @@
 import Foundation
 
 
-class BinarySearchTree<T:Comparable> {
+class BSTNode<T:Comparable> {
     
-    var parent:BinarySearchTree?
-    var leftChild:BinarySearchTree?
-    var rightChild:BinarySearchTree?
+    var parent:BSTNode?
+    var leftChild:BSTNode?
+    var rightChild:BSTNode?
     var value:T
+    var avlHeight:Int = 0
     
     init(value: T) {
         self.value = value
     }
     
-    public func insert(value:T) {
+    public func insert(value:T) -> BSTNode? {
+        var returnNode:BSTNode?
         if(value < self.value) {
             if let left = self.leftChild {
                 left.insert(value: value)
             } else {
-                self.leftChild = BinarySearchTree(value: value)
+                self.leftChild = BSTNode(value: value)
                 self.leftChild?.parent = self
+                returnNode = self.leftChild
             }
         } else {
             if let right = self.rightChild {
                 right.insert(value: value)
             } else {
-                self.rightChild = BinarySearchTree(value: value)
+                self.rightChild = BSTNode(value: value)
                 self.rightChild?.parent = self
+                returnNode = self.rightChild
             }
         }
+        return returnNode
     }
     
     public func traverseInOrder(process: (T) -> Void) {
@@ -60,29 +65,29 @@ class BinarySearchTree<T:Comparable> {
         
     }
     
-    public func traverseInOrder2(process: BinarySearchTree) {
+    public func traverseInOrder2(process: BSTNode) {
         if let left = leftChild { traverseInOrder2(process: left) }
         self.process2(node: self)
         if let right = rightChild { traverseInOrder2(process: right) }
     }
     
-    public func traversePreOrder2(process:BinarySearchTree) {
+    public func traversePreOrder2(process:BSTNode) {
         self.process2(node: self)
         if let left = leftChild { traversePreOrder2(process: left) }
         if let right = rightChild { traversePreOrder2(process: right) }
     }
     
-    public func traversePostOrder2(process: BinarySearchTree) {
+    public func traversePostOrder2(process: BSTNode) {
         if let left = leftChild {  traversePostOrder2(process: left) }
         if let right = rightChild { traversePostOrder2(process: right) }
         self.process2(node: self)
     }
     
-    public func process2(node: BinarySearchTree) -> Void {
+    public func process2(node: BSTNode) -> Void {
         
     }
     
-    public func maxNode(node: BinarySearchTree) -> BinarySearchTree {
+    public func maxNode(node: BSTNode) -> BSTNode {
         if let right = rightChild {
             return maxNode(node: right)
         }
@@ -90,7 +95,7 @@ class BinarySearchTree<T:Comparable> {
         return self
     }
     
-    public func minNode(node: BinarySearchTree) -> BinarySearchTree {
+    public func minNode(node: BSTNode) -> BSTNode {
         if let left = leftChild {
             return minNode(node: left)
         }
@@ -115,7 +120,7 @@ class BinarySearchTree<T:Comparable> {
     
     public func remove() {
         
-        var newNode:BinarySearchTree? = nil
+        var newNode:BSTNode? = nil
         
         if let left = self.leftChild {
             newNode = minNode(node: self)
@@ -155,7 +160,7 @@ class BinarySearchTree<T:Comparable> {
         return map { $0 }
     }
     
-    public func search(value: T) -> BinarySearchTree? {
+    public func search(value: T) -> BSTNode? {
         if(self.value == value) {
             return self
         }
