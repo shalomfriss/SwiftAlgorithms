@@ -34,7 +34,7 @@ class GameViewController: UIViewController {
         
         
         let tree = RedBlackTree<Int>()
-        let node = tree.insert(value: 5)
+        tree.insert(value: 5)
         tree.insert(value: 8)
         tree.insert(value: 10)
         tree.insert(value: 3)
@@ -42,9 +42,10 @@ class GameViewController: UIViewController {
         tree.printme()
         
         
-        tree.rotateLeft(node: node)
+        tree.rotateLeft(node: tree.root)
         tree.printme()
-        
+        tree.rotateRight(node: tree.root)
+        tree.printme()
         /*
         let heap = AlgoArray()
         heap.addItem(value: 1)

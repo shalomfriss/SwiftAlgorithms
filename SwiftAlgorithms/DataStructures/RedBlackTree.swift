@@ -138,9 +138,12 @@ class RedBlackTree<T:Comparable> {
     }
     
     public func insertCaseA(node: RBNode<T>?) {
+        print("CASE A")
         guard let node = node, let nodeParent = node.parent, let nodeGrand = nodeParent.parent else {
             return
         }
+        
+        print(node.value)
         
         var uncle = nodeGrand.right
         if(nodeParent.isLeft == true) {
@@ -160,6 +163,7 @@ class RedBlackTree<T:Comparable> {
     
     //Uncle is black (meaning either black or nil, since nil is considered black)
     public func insertCaseB(node:RBNode<T>?) {
+        print("CASE B")
         guard let node = node, let nodeParent = node.parent, let nodeGrand = nodeParent.parent else {
             return
         }
@@ -169,6 +173,7 @@ class RedBlackTree<T:Comparable> {
             uncle = nodeGrand.left
         }
         
+       
         if(nodeParent.isLeft && node.isLeft) {
             insertCaseLL(node: node)
         }
@@ -191,19 +196,44 @@ class RedBlackTree<T:Comparable> {
     
     //Specifics
     public func insertCaseLL(node:RBNode<T>?) {
+        guard let node = node, let nodeParent = node.parent, let nodeGrand = nodeParent.parent else {
+            return
+        }
         
+        let color = nodeParent.color
+        nodeParent.color = nodeGrand.color
+        nodeGrand.color = color
+        rotateRight(node: nodeGrand)
     }
     
     public func insertCaseLR(node:RBNode<T>?) {
+        guard let node = node, let nodeParent = node.parent, let nodeGrand = nodeParent.parent else {
+            return
+        }
         
+        rotateLeft(node: nodeParent)
+        insertCaseLL(node: nodeParent)
     }
     
     public func insertCaseRR(node:RBNode<T>?) {
+        guard let node = node, let nodeParent = node.parent, let nodeGrand = nodeParent.parent else {
+            return
+        }
+        
+        let color = nodeParent.color
+        nodeParent.color = nodeGrand.color
+        nodeGrand.color = color
+        rotateLeft(node: nodeGrand)
         
     }
     
     public func insertCaseRL(node:RBNode<T>?) {
+        guard let node = node, let nodeParent = node.parent, let nodeGrand = nodeParent.parent else {
+            return
+        }
         
+        rotateRight(node: nodeParent)
+        insertCaseRR(node: nodeParent)
     }
     
     /******************************************/
@@ -293,7 +323,7 @@ class RedBlackTree<T:Comparable> {
                 continue
             }
             
-            str += "\(item.value), "
+            str += "\(item.value)-\(item.color), "
             
             if(item.left != nil) {
                 queue.push(item: item.left)
