@@ -95,14 +95,19 @@ class RedBlackTree<T:Comparable> {
         
         //node is not root
         let node = root.insert(value: value)
-        insertFix(node: node)
+        
+        if(!node.isRoot) {
+            if(node.parent?.color == .red) {
+                insertFix(node: node)
+            }
+        }
+        
         
         return node
         
     }
     
     public func insertFix(node: RBNode<T>?) {
-        
         guard let node = node else {
             return
         }
@@ -113,13 +118,12 @@ class RedBlackTree<T:Comparable> {
         }
         
         
-        
         if let grandParent = node.parent?.parent {
-            
-            var uncle = grandParent.right
+            var uncle = grandParent.left
             if(node.parent?.isLeft == true) {
-                uncle = grandParent.left
+                uncle = grandParent.right
             }
+            
             
             if(uncle != nil) {
                 if(uncle?.color == .red){
@@ -138,16 +142,13 @@ class RedBlackTree<T:Comparable> {
     }
     
     public func insertCaseA(node: RBNode<T>?) {
-        print("CASE A")
         guard let node = node, let nodeParent = node.parent, let nodeGrand = nodeParent.parent else {
             return
         }
         
-        print(node.value)
-        
-        var uncle = nodeGrand.right
+        var uncle = nodeGrand.left
         if(nodeParent.isLeft == true) {
-            uncle = nodeGrand.left
+            uncle = nodeGrand.right
         }
         
         if(uncle == nil) {
@@ -163,14 +164,13 @@ class RedBlackTree<T:Comparable> {
     
     //Uncle is black (meaning either black or nil, since nil is considered black)
     public func insertCaseB(node:RBNode<T>?) {
-        print("CASE B")
         guard let node = node, let nodeParent = node.parent, let nodeGrand = nodeParent.parent else {
             return
         }
         
-        var uncle = nodeGrand.right
+        var uncle = nodeGrand.left
         if(nodeParent.isLeft == true) {
-            uncle = nodeGrand.left
+            uncle = nodeGrand.right
         }
         
        

@@ -38,14 +38,27 @@ class GameViewController: UIViewController {
         tree.insert(value: 8)
         tree.insert(value: 10)
         tree.insert(value: 3)
+        tree.insert(value: 12)
+        tree.insert(value: 14)
+        tree.insert(value: 7)
+        tree.insert(value: 9)
+        tree.insert(value: 1)
+        /*
         
+        
+        
+        
+        
+         */
         tree.printme()
         
-        
+        /*
         tree.rotateLeft(node: tree.root)
         tree.printme()
         tree.rotateRight(node: tree.root)
         tree.printme()
+        */
+ 
         /*
         let heap = AlgoArray()
         heap.addItem(value: 1)
