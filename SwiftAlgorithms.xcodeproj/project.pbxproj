@@ -25,6 +25,7 @@
 		CE052EF42198931300F2017C /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE052EF32198931300F2017C /* Heap.swift */; };
 		CE052EF8219896A900F2017C /* HeapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE052EF7219896A900F2017C /* HeapTests.swift */; };
 		CE052EFC2198C40C00F2017C /* HeapSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE052EFB2198C40C00F2017C /* HeapSort.swift */; };
+		CE052EFE219921DA00F2017C /* RedBlackTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE052EFD219921DA00F2017C /* RedBlackTree.swift */; };
 		CE1A8DF1218E65B100611FD2 /* AVLNode.old.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A8DF0218E65B100611FD2 /* AVLNode.old.swift */; };
 		CE234007218FB55700463D2F /* AVLNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE234006218FB55700463D2F /* AVLNodeTests.swift */; };
 		CEDFD645218D04EE009290F6 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFD644218D04EE009290F6 /* Stack.swift */; };
@@ -78,6 +79,7 @@
 		CE052EF32198931300F2017C /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		CE052EF7219896A900F2017C /* HeapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeapTests.swift; sourceTree = "<group>"; };
 		CE052EFB2198C40C00F2017C /* HeapSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeapSort.swift; sourceTree = "<group>"; };
+		CE052EFD219921DA00F2017C /* RedBlackTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedBlackTree.swift; sourceTree = "<group>"; };
 		CE1A8DF0218E65B100611FD2 /* AVLNode.old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVLNode.old.swift; sourceTree = "<group>"; };
 		CE234006218FB55700463D2F /* AVLNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVLNodeTests.swift; sourceTree = "<group>"; };
 		CEDFD644218D04EE009290F6 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				CEDFD656218E227F009290F6 /* Tree.swift */,
 				CE052EF12197BA7700F2017C /* AVLTree.swift */,
 				CE052EF32198931300F2017C /* Heap.swift */,
+				CE052EFD219921DA00F2017C /* RedBlackTree.swift */,
 			);
 			path = DataStructures;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				CE1A8DF1218E65B100611FD2 /* AVLNode.old.swift in Sources */,
 				31615FEC1F9BDE0F002A3ECF /* GameViewController.swift in Sources */,
 				CE052EFC2198C40C00F2017C /* HeapSort.swift in Sources */,
+				CE052EFE219921DA00F2017C /* RedBlackTree.swift in Sources */,
 				31615FE41F9BDE0F002A3ECF /* AppDelegate.swift in Sources */,
 				31E3C9791FCE5C1800DBF4CA /* Test.swift in Sources */,
 				CEDFD645218D04EE009290F6 /* Stack.swift in Sources */,

@@ -25,7 +25,7 @@ class BSTNode<T:Comparable> {
         var returnNode:BSTNode?
         if(value < self.value) {
             if let left = self.leftChild {
-                left.insert(value: value)
+                returnNode = left.insert(value: value)
             } else {
                 self.leftChild = BSTNode(value: value)
                 self.leftChild?.parent = self
@@ -33,7 +33,7 @@ class BSTNode<T:Comparable> {
             }
         } else {
             if let right = self.rightChild {
-                right.insert(value: value)
+                returnNode = right.insert(value: value)
             } else {
                 self.rightChild = BSTNode(value: value)
                 self.rightChild?.parent = self

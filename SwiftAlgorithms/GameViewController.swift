@@ -31,6 +31,20 @@ class GameViewController: UIViewController {
             view.showsNodeCount = true
         }
         
+        
+        
+        let tree = RedBlackTree<Int>()
+        let node = tree.insert(value: 5)
+        tree.insert(value: 8)
+        tree.insert(value: 10)
+        tree.insert(value: 3)
+        
+        tree.printme()
+        
+        
+        tree.rotateLeft(node: node)
+        tree.printme()
+        
         /*
         let heap = AlgoArray()
         heap.addItem(value: 1)
@@ -110,6 +124,8 @@ class GameViewController: UIViewController {
         avlTree.printme()
         */
         
+        
+        /*
         print("GO")
         let heap = Heap<Int>()
         heap.insert(value: 3)
@@ -139,6 +155,8 @@ class GameViewController: UIViewController {
         let arr = [2, 10, 1,4,7,3,5,9,6]
         let hs = HeapSort(array: arr)
         hs.heap.printme()
+ 
+    */
         /*
         print("AVL------------------")
         let avl = AVLNode(value: 6)
