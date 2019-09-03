@@ -21,6 +21,14 @@ class BSTNode<T:Comparable> {
         self.value = value
     }
     
+    public var isLeft:Bool {
+        return self.parent?.leftChild === self
+    }
+    
+    public var isRight:Bool {
+        return self.parent?.rightChild === self
+    }
+    
     public func insert(value:T) -> BSTNode? {
         var returnNode:BSTNode?
         if(value < self.value) {
@@ -120,23 +128,25 @@ class BSTNode<T:Comparable> {
     
     public func remove() {
         
-        var newNode:BSTNode? = nil
+        var newNode:BSTNode = self
         
         if let left = self.leftChild {
-            newNode = minNode(node: self)
+            newNode = minNode(node: left)
+        } else if let right = self.rightChild {
+                newNode = maxNode(node: right)
         } else {
-            if let right = self.rightChild {
-                newNode = maxNode(node: self)
+            if(isLeft) {
+                self.parent?.leftChild = nil
+            } else {
+                self.parent?.rightChild = nil
             }
+            self.parent = nil
+            return
         }
         
-        if(parent?.leftChild === self) {
-            parent?.leftChild = newNode
-        } else {
-            parent?.rightChild = newNode
-        }
+        self.value = newNode.value
+        newNode.remove()
         
-        newNode?.parent = parent
         
     }
     

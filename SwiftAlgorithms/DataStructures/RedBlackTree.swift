@@ -65,6 +65,24 @@ class RBNode<T:Comparable> {
         }
     }
     
+    
+    
+    public func minNode(node: RBNode<T>) -> RBNode<T> {
+        if(node.left == nil){
+            return node
+        } else {
+            return minNode(node: node.left!)
+        }
+    }
+    
+    public func maxNode(node:RBNode<T>) ->RBNode<T> {
+        if(node.right == nil){
+            return node
+        } else {
+            return maxNode(node: node.right!)
+        }
+    }
+    
 }
 
 
@@ -81,8 +99,10 @@ class RedBlackTree<T:Comparable> {
     }
     
     
+    
+    
     /******************************************/
-    //UTIL
+    //INSERT
     /******************************************/
     //MARK:- INSERT
     public func insert(value:T) -> RBNode<T> {
@@ -168,12 +188,6 @@ class RedBlackTree<T:Comparable> {
             return
         }
         
-        var uncle = nodeGrand.left
-        if(nodeParent.isLeft == true) {
-            uncle = nodeGrand.right
-        }
-        
-       
         if(nodeParent.isLeft && node.isLeft) {
             insertCaseLL(node: node)
         }

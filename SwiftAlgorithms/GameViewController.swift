@@ -32,7 +32,11 @@ class GameViewController: UIViewController {
         }
         
         
+        let arr = [5,2,6,9,8,7,23,65,78,44,55,66,3,4,5,6]
+        print("Mergesorted")
+        print(Mergesort.sort(arr))
         
+        /*
         let tree = RedBlackTree<Int>()
         tree.insert(value: 5)
         tree.insert(value: 8)
@@ -41,8 +45,40 @@ class GameViewController: UIViewController {
         tree.insert(value: 12)
         tree.insert(value: 14)
         tree.insert(value: 7)
+        tree.insert(value: 6)
         tree.insert(value: 9)
         tree.insert(value: 1)
+        tree.printme()
+        */
+        
+        print("start")
+        let node = GraphNode<Int>(key: 3)
+        let node1 = GraphNode<Int>(key: 7)
+        let node2 = GraphNode<Int>(key: 6)
+        let node3 = GraphNode<Int>(key: 1)
+        node.add(node: node1)
+        node.add(node: node2)
+        node.add(node: node3)
+        
+        if let fnode = node.DFS(key: 3) {
+            print("Found")
+            print(fnode.key)
+        }
+        
+        if let fnode = node.DFS(key: 4) {
+            print("Found")
+            print(fnode.key)
+        } else {
+            print("No key for 4")
+        }
+        
+        
+        
+        
+        
+        
+        
+        
         /*
         
         
@@ -50,7 +86,7 @@ class GameViewController: UIViewController {
         
         
          */
-        tree.printme()
+        
         
         /*
         tree.rotateLeft(node: tree.root)
@@ -58,7 +94,7 @@ class GameViewController: UIViewController {
         tree.rotateRight(node: tree.root)
         tree.printme()
         */
- 
+        
         /*
         let heap = AlgoArray()
         heap.addItem(value: 1)
@@ -188,7 +224,7 @@ class GameViewController: UIViewController {
         avl.rotateLeft(node: avl.getRoot().left)
         avl.printTree()
         */
-        print("DONE")
+        
         //print("-----------------")
         //avl.printme()
         
@@ -197,6 +233,8 @@ class GameViewController: UIViewController {
         
         
         //print(avl.toArray())
+        
+        print("DONE")
         
     }
 

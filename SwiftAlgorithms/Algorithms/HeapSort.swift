@@ -14,16 +14,25 @@ class HeapSort<T:Comparable> {
     init(array:[T]) {
         heap.buildHeap(array: array)
         
-        
         var backIndex = array.count - 1
         while(backIndex > 0) {
             heap.swap(i: 0, j: backIndex)
             heap.shiftDown(index: 0, until: backIndex)  //Shift down is non inclusive
-            heap.printme()
             backIndex = backIndex - 1
         }
         
+    }
+    class func sort(_ array:[T]) -> [T] {
+        let aHeap = Heap<T>()
+        aHeap.buildHeap(array: array)
+        var backIndex = array.count - 1
+        while(backIndex > 0) {
+            aHeap.swap(i: 0, j: backIndex)
+            aHeap.shiftDown(index: 0, until: backIndex)  //Shift down is non inclusive
+            backIndex = backIndex - 1
+        }
         
+        return aHeap.items
     }
 }
 
