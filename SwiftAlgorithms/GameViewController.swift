@@ -31,7 +31,6 @@ class GameViewController: UIViewController {
             view.showsNodeCount = true
         }
         
-        var tt = Test()
         
         let heap = Heap()
         heap.addItem(val: 1)

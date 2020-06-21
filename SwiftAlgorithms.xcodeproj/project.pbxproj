@@ -20,7 +20,10 @@
 		316160191F9BECF4002A3ECF /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316160181F9BECF4002A3ECF /* Heap.swift */; };
 		3161601B1F9BED77002A3ECF /* AlgoArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3161601A1F9BED77002A3ECF /* AlgoArray.swift */; };
 		3161601E1F9BEDB7002A3ECF /* ArrayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3161601D1F9BEDB7002A3ECF /* ArrayItem.swift */; };
-		31E3C9791FCE5C1800DBF4CA /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E3C9781FCE5C1800DBF4CA /* Test.swift */; };
+		44541006249EB1D7009C28D6 /* BinaryTreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44541005249EB1D7009C28D6 /* BinaryTreeNode.swift */; };
+		44541008249EB8AA009C28D6 /* MaxHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44541007249EB8AA009C28D6 /* MaxHeap.swift */; };
+		4454100C249FE9F4009C28D6 /* BinaryTreeNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454100B249FE9F4009C28D6 /* BinaryTreeNodeTests.swift */; };
+		4454100E24A01FC0009C28D6 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454100D24A01FC0009C28D6 /* TreeNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +63,10 @@
 		316160181F9BECF4002A3ECF /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		3161601A1F9BED77002A3ECF /* AlgoArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgoArray.swift; sourceTree = "<group>"; };
 		3161601D1F9BEDB7002A3ECF /* ArrayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayItem.swift; sourceTree = "<group>"; };
-		31E3C9781FCE5C1800DBF4CA /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		44541005249EB1D7009C28D6 /* BinaryTreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTreeNode.swift; sourceTree = "<group>"; };
+		44541007249EB8AA009C28D6 /* MaxHeap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxHeap.swift; sourceTree = "<group>"; };
+		4454100B249FE9F4009C28D6 /* BinaryTreeNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTreeNodeTests.swift; sourceTree = "<group>"; };
+		4454100D24A01FC0009C28D6 /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,7 @@
 			children = (
 				31615FFE1F9BDE10002A3ECF /* SwiftAlgorithmsTests.swift */,
 				316160001F9BDE10002A3ECF /* Info.plist */,
+				4454100B249FE9F4009C28D6 /* BinaryTreeNodeTests.swift */,
 			);
 			path = SwiftAlgorithmsTests;
 			sourceTree = "<group>";
@@ -148,7 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				316160181F9BECF4002A3ECF /* Heap.swift */,
-				31E3C9781FCE5C1800DBF4CA /* Test.swift */,
+				44541005249EB1D7009C28D6 /* BinaryTreeNode.swift */,
+				44541007249EB8AA009C28D6 /* MaxHeap.swift */,
+				4454100D24A01FC0009C28D6 /* TreeNode.swift */,
 			);
 			path = struct;
 			sourceTree = "<group>";
@@ -300,8 +309,10 @@
 			files = (
 				31615FEA1F9BDE0F002A3ECF /* GameScene.swift in Sources */,
 				31615FEC1F9BDE0F002A3ECF /* GameViewController.swift in Sources */,
+				4454100E24A01FC0009C28D6 /* TreeNode.swift in Sources */,
+				44541008249EB8AA009C28D6 /* MaxHeap.swift in Sources */,
+				44541006249EB1D7009C28D6 /* BinaryTreeNode.swift in Sources */,
 				31615FE41F9BDE0F002A3ECF /* AppDelegate.swift in Sources */,
-				31E3C9791FCE5C1800DBF4CA /* Test.swift in Sources */,
 				3161601B1F9BED77002A3ECF /* AlgoArray.swift in Sources */,
 				3161601E1F9BEDB7002A3ECF /* ArrayItem.swift in Sources */,
 				316160191F9BECF4002A3ECF /* Heap.swift in Sources */,
@@ -312,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4454100C249FE9F4009C28D6 /* BinaryTreeNodeTests.swift in Sources */,
 				31615FFF1F9BDE10002A3ECF /* SwiftAlgorithmsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

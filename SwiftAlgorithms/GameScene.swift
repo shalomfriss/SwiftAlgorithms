@@ -69,6 +69,43 @@ class GameScene: SKScene {
         }
          */
         
+        
+        var root = TreeNode(7)
+
+        root.addValue(9)
+        root.addValue(5)
+        root.addValue(6)
+        root.addValue(1)
+        
+        print("TREE-------------------------------------")
+        print(root.asString)
+        print("---------------------------------------")
+        
+        root = TreeNode(80)
+        
+        root.addValue(50)
+        root.addValue(90)
+        root.addValue(10)
+        root.addValue(60)
+        root.addValue(30)
+        root.addValue(70)
+        root.addValue(55)
+        root.addValue(5)
+        root.addValue(35)
+        root.addValue(85)
+
+        root.addValue(51)
+        root.addValue(901)
+        root.addValue(101)
+        root.addValue(601)
+        root.addValue(301)
+        root.addValue(701)
+        root.addValue(551)
+        root.addValue(51)
+        root.addValue(315)
+        root.addValue(851)
+        
+        print(root.asString)
     }
     
     
