@@ -13,10 +13,10 @@ class TreeNode
    var value : Int
    var left  : TreeNode? = nil
    var right : TreeNode? = nil
-
+    
    init(_ rootValue:Int)
    { value = rootValue }
-
+        
    @discardableResult
    func addValue( _ newValue:Int) -> TreeNode
    {

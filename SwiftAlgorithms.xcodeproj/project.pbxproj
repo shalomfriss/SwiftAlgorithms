@@ -24,6 +24,11 @@
 		44541008249EB8AA009C28D6 /* MaxHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44541007249EB8AA009C28D6 /* MaxHeap.swift */; };
 		4454100C249FE9F4009C28D6 /* BinaryTreeNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454100B249FE9F4009C28D6 /* BinaryTreeNodeTests.swift */; };
 		4454100E24A01FC0009C28D6 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454100D24A01FC0009C28D6 /* TreeNode.swift */; };
+		4454101124A1845F009C28D6 /* PrintAllPermutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454101024A1845F009C28D6 /* PrintAllPermutations.swift */; };
+		4454101424A188EA009C28D6 /* PrintAllPermutationsWithDups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454101324A188EA009C28D6 /* PrintAllPermutationsWithDups.swift */; };
+		4454101624A18F0C009C28D6 /* PrintParens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454101524A18F0C009C28D6 /* PrintParens.swift */; };
+		4454101824A1A164009C28D6 /* NumberOfRepresentations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454101724A1A164009C28D6 /* NumberOfRepresentations.swift */; };
+		4454101A24A2EE4A009C28D6 /* ArrangeEightQueens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454101924A2EE4A009C28D6 /* ArrangeEightQueens.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +72,11 @@
 		44541007249EB8AA009C28D6 /* MaxHeap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxHeap.swift; sourceTree = "<group>"; };
 		4454100B249FE9F4009C28D6 /* BinaryTreeNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTreeNodeTests.swift; sourceTree = "<group>"; };
 		4454100D24A01FC0009C28D6 /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
+		4454101024A1845F009C28D6 /* PrintAllPermutations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintAllPermutations.swift; sourceTree = "<group>"; };
+		4454101324A188EA009C28D6 /* PrintAllPermutationsWithDups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintAllPermutationsWithDups.swift; sourceTree = "<group>"; };
+		4454101524A18F0C009C28D6 /* PrintParens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintParens.swift; sourceTree = "<group>"; };
+		4454101724A1A164009C28D6 /* NumberOfRepresentations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfRepresentations.swift; sourceTree = "<group>"; };
+		4454101924A2EE4A009C28D6 /* ArrangeEightQueens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrangeEightQueens.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +127,7 @@
 		31615FE21F9BDE0F002A3ECF /* SwiftAlgorithms */ = {
 			isa = PBXGroup;
 			children = (
+				4454100F24A1844D009C28D6 /* algo */,
 				3161601C1F9BEDA8002A3ECF /* algoarray */,
 				316160171F9BECEA002A3ECF /* struct */,
 				31615FE31F9BDE0F002A3ECF /* AppDelegate.swift */,
@@ -169,6 +180,18 @@
 				3161601D1F9BEDB7002A3ECF /* ArrayItem.swift */,
 			);
 			path = algoarray;
+			sourceTree = "<group>";
+		};
+		4454100F24A1844D009C28D6 /* algo */ = {
+			isa = PBXGroup;
+			children = (
+				4454101024A1845F009C28D6 /* PrintAllPermutations.swift */,
+				4454101324A188EA009C28D6 /* PrintAllPermutationsWithDups.swift */,
+				4454101524A18F0C009C28D6 /* PrintParens.swift */,
+				4454101724A1A164009C28D6 /* NumberOfRepresentations.swift */,
+				4454101924A2EE4A009C28D6 /* ArrangeEightQueens.swift */,
+			);
+			path = algo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,14 +330,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4454101124A1845F009C28D6 /* PrintAllPermutations.swift in Sources */,
 				31615FEA1F9BDE0F002A3ECF /* GameScene.swift in Sources */,
+				4454101624A18F0C009C28D6 /* PrintParens.swift in Sources */,
+				4454101824A1A164009C28D6 /* NumberOfRepresentations.swift in Sources */,
 				31615FEC1F9BDE0F002A3ECF /* GameViewController.swift in Sources */,
 				4454100E24A01FC0009C28D6 /* TreeNode.swift in Sources */,
 				44541008249EB8AA009C28D6 /* MaxHeap.swift in Sources */,
+				4454101A24A2EE4A009C28D6 /* ArrangeEightQueens.swift in Sources */,
 				44541006249EB1D7009C28D6 /* BinaryTreeNode.swift in Sources */,
 				31615FE41F9BDE0F002A3ECF /* AppDelegate.swift in Sources */,
 				3161601B1F9BED77002A3ECF /* AlgoArray.swift in Sources */,
 				3161601E1F9BEDB7002A3ECF /* ArrayItem.swift in Sources */,
+				4454101424A188EA009C28D6 /* PrintAllPermutationsWithDups.swift in Sources */,
 				316160191F9BECF4002A3ECF /* Heap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

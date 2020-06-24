@@ -106,6 +106,15 @@ class GameScene: SKScene {
         root.addValue(851)
         
         print(root.asString)
+        
+        let pr = PrintAllPermutationsWithDups(str: "aabc")
+        let paren = PrintParens(num: 4)
+        
+        
+        var dens = [25,10,5,1]
+        let den = NumberOfRepresentations(dens, 100)
+        
+        
     }
     
     
