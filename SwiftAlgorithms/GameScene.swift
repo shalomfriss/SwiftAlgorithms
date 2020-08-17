@@ -29,6 +29,9 @@ class GameScene: SKScene {
         // Create shape node to use during mouse interaction
         //let w = (self.size.width + self.size.height) * 0.05
         //self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
+        
+        
+        /*
         let container = SKShapeNode()
         
         
@@ -53,6 +56,8 @@ class GameScene: SKScene {
         
         self.addChild(container)
         
+ */
+        
         //testNode.position.x += 10
         
         //let heap = Heap()
@@ -69,7 +74,7 @@ class GameScene: SKScene {
         }
          */
         
-        
+        /*
         var root = TreeNode(7)
 
         root.addValue(9)
@@ -93,7 +98,7 @@ class GameScene: SKScene {
         root.addValue(5)
         root.addValue(35)
         root.addValue(85)
-
+        
         root.addValue(51)
         root.addValue(901)
         root.addValue(101)
@@ -114,7 +119,58 @@ class GameScene: SKScene {
         var dens = [25,10,5,1]
         let den = NumberOfRepresentations(dens, 100)
         
+        let phils = DiningPhilosophers(num: 7)
+        */
         
+        
+        
+        /*
+        let graphRoot = GraphNode(value: 10)
+        let graph = Graph(root: graphRoot)
+        for i in 0..<20 {
+            let anode = GraphNode(value: i)
+            graphRoot.addChild(aChild: anode)
+        }
+        
+        print("-------------------------------")
+        print(graph.search(aValue: 9))
+        print("-------------------------------")
+        */
+        
+        
+        
+        /*
+        var heap = Heap<Int>(sort: <)
+        heap.insert(5)
+        print(heap.nodes)
+        heap.insert(7)
+        print(heap.nodes)
+        heap.insert(3)
+        print(heap.nodes)
+        */
+        
+        /*
+        let s1 = "aaaabbbbbbbbbbccccccccccddddddddddeeeeeeeeeeffffffffffgggggggggghhhhhhhhhhiiiiiiiiiijjjjjjjjjjkkkkkkkkkkllllllllllmmmmmmmmmmnnnnnnnnnnooooooooooppppppppppqqqqqqqqqqrrrrrrrrrrssssssssssttttttttttuuuuuuuuuuvvvvvvvvvvwwwwwwwwwwxxxxxxxxxxyyyyyyyyyyzzzzzzzzzzyyyyyyyyyyxxxxxxxxxxwwwwwwwwwwvvvvvvvvvvuuuuuuuuuuttttttttttssssssssssrrrrrrrrrrqqqqqqqqqqppppppppppoooooooooonnnnnnnnnnmmmmmmmmmmllllllllllkkkkkkkkkkjjjjjjjjjjiiiiiiiiiihhhhhhhhhhggggggggggffffffffffeeeeeeeeeeddddddddddccccccccccbbbbbbbbbbaaaaaaaabbbbbbbbbbccccccccccddddddddddeeeeeeeeeeffffffffffgggggggggghhhhhhhhhhiiiiiiiiiijjjjjjjjjjkkkkkkkkkkllllllllllmmmmmmmmmmnnnnnnnnnnooooooooooppppppppppqqqqqqqqqqrrrrrrrrrrssssssssssttttttttttuuuuuuuuuuvvvvvvvvvvwwwwwwwwwwxxxxxxxxxxyyyyyyyyyyzzzzzzzzzzyyyyyyyyyyxxxxxxxxxxwwwwwwwwwwvvvvvvvvvvuuuuuuuuuuttttttttttssssssssssrrrrrrrrrrqqqqqqqqqqppppppppppoooooooooonnnnnnnnnnmmmmmmmmmmllllllllllkkkkkkkkkkjjjjjjjjjjiiiiiiiiiihhhhhhhhhhggggggggggffffffffffeeeeeeeeeeddddddddddccccccccccbbbbbbbbbbaaaa"
+        
+        let s2 = "civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"
+        
+        print("Go")
+        var longPal = LongestPalindrome()
+        let start = DispatchTime.now()
+        let palin = longPal.longestPalindrome(s1)
+        let end = DispatchTime.now()
+        
+        let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds // <<<<< Difference in nano seconds (UInt64)
+        let timeInterval = Double(nanoTime) / 1_000_000_000 // Technically could overflow for long running tests
+        print("Time to evaluate problem: \(timeInterval) seconds")
+        print(palin)
+        */
+        
+        //var lister = ListAllSubsets()
+        //lister.list(5)
+        
+        let subs = ListAllSubsetsOfArray()
+        subs.list([1,2,3,4,5])
     }
     
     

@@ -32,32 +32,7 @@ class GameViewController: UIViewController {
         }
         
         
-        let heap = Heap()
-        heap.addItem(val: 1)
-        heap.addItem(val: 5)
-        heap.addItem(val: 2)
-        heap.addItem(val: 3)
-        heap.addItem(val: 0)
-        heap.addItem(val: 10)
-        heap.addItem(val: 18)
-        heap.addItem(val: 3)
-        heap.addItem(val: 3)
-        heap.addItem(val: 0)
-        heap.addItem(val: 10)
-        heap.addItem(val: 18)
-        heap.addItem(val: 3)
-        heap.print()
         
-        print(heap.getTopItem())
-        heap.print()
-        print(heap.getTopItem())
-        heap.print()
-        print(heap.getTopItem())
-        heap.print()
-        print(heap.getTopItem())
-        heap.print()
-        print(heap.getTopItem())
-        heap.print()
     }
 
     override var shouldAutorotate: Bool {
