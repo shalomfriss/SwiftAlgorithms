@@ -38,6 +38,7 @@
 		4454101824A1A164009C28D6 /* NumberOfRepresentations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454101724A1A164009C28D6 /* NumberOfRepresentations.swift */; };
 		4454101A24A2EE4A009C28D6 /* ArrangeEightQueens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4454101924A2EE4A009C28D6 /* ArrangeEightQueens.swift */; };
 		447EC03324E61E030023874D /* ListAllSubsetOfArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447EC03224E61E030023874D /* ListAllSubsetOfArray.swift */; };
+		4483A42C25211B4A00B07825 /* EightQueensProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483A42B25211B4A00B07825 /* EightQueensProblem.swift */; };
 		44996ACD24E9F23E005A90A7 /* ArrayProductExcludingCurrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44996ACC24E9F23E005A90A7 /* ArrayProductExcludingCurrent.swift */; };
 		44996ACF24EA4B80005A90A7 /* NumbersIntoWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44996ACE24EA4B80005A90A7 /* NumbersIntoWords.swift */; };
 		449C646224ABBE81007B7F97 /* DiningPhilosophers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449C646124ABBE81007B7F97 /* DiningPhilosophers.swift */; };
@@ -108,6 +109,7 @@
 		4454101724A1A164009C28D6 /* NumberOfRepresentations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfRepresentations.swift; sourceTree = "<group>"; };
 		4454101924A2EE4A009C28D6 /* ArrangeEightQueens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrangeEightQueens.swift; sourceTree = "<group>"; };
 		447EC03224E61E030023874D /* ListAllSubsetOfArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAllSubsetOfArray.swift; sourceTree = "<group>"; };
+		4483A42B25211B4A00B07825 /* EightQueensProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightQueensProblem.swift; sourceTree = "<group>"; };
 		44996ACC24E9F23E005A90A7 /* ArrayProductExcludingCurrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayProductExcludingCurrent.swift; sourceTree = "<group>"; };
 		44996ACE24EA4B80005A90A7 /* NumbersIntoWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersIntoWords.swift; sourceTree = "<group>"; };
 		449C646124ABBE81007B7F97 /* DiningPhilosophers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningPhilosophers.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				44AB6D5724E899C8005122DE /* OneEditDistance.swift */,
 				44996ACC24E9F23E005A90A7 /* ArrayProductExcludingCurrent.swift */,
 				44996ACE24EA4B80005A90A7 /* NumbersIntoWords.swift */,
+				4483A42B25211B4A00B07825 /* EightQueensProblem.swift */,
 			);
 			path = algo;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				4453C0A524ACE6C400CC0140 /* Heap.swift in Sources */,
 				447EC03324E61E030023874D /* ListAllSubsetOfArray.swift in Sources */,
 				449C646624ACB445007B7F97 /* Graph.swift in Sources */,
+				4483A42C25211B4A00B07825 /* EightQueensProblem.swift in Sources */,
 				449C646224ABBE81007B7F97 /* DiningPhilosophers.swift in Sources */,
 				44F4A0A824CE00B8005895E2 /* ThreeSum.swift in Sources */,
 				44541006249EB1D7009C28D6 /* BinaryTreeNode.swift in Sources */,

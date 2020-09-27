@@ -171,6 +171,9 @@ class GameScene: SKScene {
         
         let subs = ListAllSubsetsOfArray()
         subs.list([1,2,3,4,5])
+        
+        let eight = EightQueensProblem()
+        eight.solve()
     }
     
     
