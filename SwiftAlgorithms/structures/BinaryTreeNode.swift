@@ -12,10 +12,10 @@ class BinaryTreeNode<T:Comparable> {
     var parent:BinaryTreeNode?
     var left:BinaryTreeNode?
     var right:BinaryTreeNode?
-    var value:T
+    var key:T
     
-    init(aValue:T) {
-        value = aValue
+    init(aKey:T) {
+        key = aKey
     }
     
     public func isLeaf() -> Bool {
@@ -26,28 +26,28 @@ class BinaryTreeNode<T:Comparable> {
         return parent == nil
     }
     
-    public func insert(newValue:T) {
-        if(newValue <= value) {
+    public func insert(newKey:T) {
+        if(newKey <= key) {
             if(left != nil) {
-                left?.insert(newValue: newValue)
+                left?.insert(newKey: newKey)
             } else {
-                left = BinaryTreeNode(aValue: newValue)
+                left = BinaryTreeNode(aKey: newKey)
             }
         } else {
             if(right != nil) {
-                right?.insert(newValue: newValue)
+                right?.insert(newKey: newKey)
             } else {
-                right = BinaryTreeNode(aValue: newValue)
+                right = BinaryTreeNode(aKey: newKey)
             }
         }
     }
     
     public func search(aValue:T) -> BinaryTreeNode? {
-        if(self.value == aValue) {
+        if(self.key == aValue) {
             return self
         }
         
-        if(aValue < self.value) {
+        if(aValue < self.key) {
             if(left == nil) { return nil }
             return left?.search(aValue: aValue)
         } else {
@@ -61,14 +61,14 @@ class BinaryTreeNode<T:Comparable> {
         while let newTemp = temp.right {
             temp = newTemp
         }
-        return temp.value
+        return temp.key
     }
     
     
     func delete(aValue:T) {
         var temp = self
-        while temp.value != aValue {
-            if(aValue < temp.value) {
+        while temp.key != aValue {
+            if(aValue < temp.key) {
                 if(temp.left == nil) { return }
                 temp = temp.left!
             } else
@@ -78,21 +78,20 @@ class BinaryTreeNode<T:Comparable> {
             }
         }
         
+        if(temp.left == nil) {
+            
+        }
+        
         if(temp.left == nil && temp.right == nil) {
-            if(temp.parent?.left?.value == temp.value) {
+            if(temp.parent?.left?.key == temp.key) {
                 temp.parent?.left = nil
             }
-            if(temp.parent?.right?.value == temp.value) {
+            if(temp.parent?.right?.key == temp.key) {
                 temp.parent?.right = nil
             }
         }
         
-        /*
-        if(temp.left != nil) {
-            let leftMax = temp.left?.getMax()
-            let newNode = search(aValue: leftMax)
-        }
-        */
+        
         
     }
 }

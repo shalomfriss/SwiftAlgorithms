@@ -169,11 +169,14 @@ class GameScene: SKScene {
         //var lister = ListAllSubsets()
         //lister.list(5)
         
-        let subs = ListAllSubsetsOfArray()
-        subs.list([1,2,3,4,5])
         
-        let eight = EightQueensProblem()
-        eight.solve()
+//        let subs = ListAllSubsetsOfArray()
+//        subs.list([1,2,3,4,5])
+//
+//        let eight = EightQueensProblem()
+//        eight.solve()
+        
+        let _ = NextSmallestElement([3,7,6,9,8,2,5,1,4])
     }
     
     
