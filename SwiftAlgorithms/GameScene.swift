@@ -176,7 +176,13 @@ class GameScene: SKScene {
 //        let eight = EightQueensProblem()
 //        eight.solve()
         
-        let _ = NextSmallestElement([3,7,6,9,8,2,5,1,4])
+        //let _ = NextSmallestElement([3,7,6,9,8,2,5,1,4])
+        
+        let tree = AVLNode<Int, Int>(nil, nil, nil, 1,2).getRandomTree()
+        print(tree.asString)
+        
+        
+        
     }
     
     
