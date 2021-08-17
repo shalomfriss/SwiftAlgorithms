@@ -55,6 +55,7 @@
 		44F4A0A824CE00B8005895E2 /* ThreeSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4A0A724CE00B8005895E2 /* ThreeSum.swift */; };
 		44F4A0AA24CE0534005895E2 /* RemoveDuplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F4A0A924CE0534005895E2 /* RemoveDuplicates.swift */; };
 		44F69FD426CB549E00866DA3 /* AVLTree+Printing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F69FD326CB549E00866DA3 /* AVLTree+Printing.swift */; };
+		44F69FD626CB67A500866DA3 /* AVLTree+AVLOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F69FD526CB67A500866DA3 /* AVLTree+AVLOps.swift */; };
 		44F877A824BB5DAF0041B9DE /* ListAllSubsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F877A724BB5DAF0041B9DE /* ListAllSubsets.swift */; };
 		44F877AA24BB5EFD0041B9DE /* ListAllPermutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F877A924BB5EFD0041B9DE /* ListAllPermutations.swift */; };
 		44F877AC24BBFC480041B9DE /* MaximumProfitJobScheduling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F877AB24BBFC480041B9DE /* MaximumProfitJobScheduling.swift */; };
@@ -133,6 +134,7 @@
 		44F4A0A724CE00B8005895E2 /* ThreeSum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeSum.swift; sourceTree = "<group>"; };
 		44F4A0A924CE0534005895E2 /* RemoveDuplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveDuplicates.swift; sourceTree = "<group>"; };
 		44F69FD326CB549E00866DA3 /* AVLTree+Printing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVLTree+Printing.swift"; sourceTree = "<group>"; };
+		44F69FD526CB67A500866DA3 /* AVLTree+AVLOps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVLTree+AVLOps.swift"; sourceTree = "<group>"; };
 		44F877A724BB5DAF0041B9DE /* ListAllSubsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAllSubsets.swift; sourceTree = "<group>"; };
 		44F877A924BB5EFD0041B9DE /* ListAllPermutations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAllPermutations.swift; sourceTree = "<group>"; };
 		44F877AB24BBFC480041B9DE /* MaximumProfitJobScheduling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaximumProfitJobScheduling.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				4470AC2D26C6A6D0005F4177 /* AVLTree.swift */,
+				44F69FD526CB67A500866DA3 /* AVLTree+AVLOps.swift */,
 				44F69FD326CB549E00866DA3 /* AVLTree+Printing.swift */,
 			);
 			path = "AVL Tree";
@@ -459,6 +462,7 @@
 				44B399892677651F0027C5AD /* NextSmallestElement.swift in Sources */,
 				449C646224ABBE81007B7F97 /* DiningPhilosophers.swift in Sources */,
 				44F4A0A824CE00B8005895E2 /* ThreeSum.swift in Sources */,
+				44F69FD626CB67A500866DA3 /* AVLTree+AVLOps.swift in Sources */,
 				44541006249EB1D7009C28D6 /* BinaryTreeNode.swift in Sources */,
 				4406EC5B24C3BB2F00C7F716 /* MaximumSubarray.swift in Sources */,
 				31615FE41F9BDE0F002A3ECF /* AppDelegate.swift in Sources */,

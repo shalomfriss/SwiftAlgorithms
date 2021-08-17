@@ -9,6 +9,8 @@
 import Foundation
 
 extension AVLNode {
+    
+    /// Creadit: https://stackoverflow.com/questions/43898440/how-to-draw-a-binary-tree-in-console/43903427
     public func treeString<T>(_ node:T, reversed:Bool=false, isTop:Bool=true, using nodeInfo:(T)->(String,T?,T?)) -> String
     {
        // node value string and sub nodes
@@ -140,7 +142,6 @@ extension AVLNode {
     
     
 }
-
 
 extension AVLNode
 {
