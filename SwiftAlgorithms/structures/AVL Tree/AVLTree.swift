@@ -24,12 +24,7 @@ class AVLNode<T:Comparable,U> {
         self.value = value
     }
     
-    
-    /***************************************************/
-    //Binary tree ops
-    /***************************************************/
     //MARK:- Binary tree ops
-    
     func inOrderTreeWalk(x:AVLNode?, block:(AVLNode?) -> Void) {
         if(x == nil) { return }
         inOrderTreeWalk(x: x?.left, block: block)
