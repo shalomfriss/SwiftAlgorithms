@@ -77,6 +77,7 @@ extension AVLNode {
         if let m = self.left {
             if let mRight = m.right, let mLeft = m.left {
                 if(mRight.height > mLeft.height ) {
+                    print("rotate left")
                     m.rotateLeft()
                 }
             }
@@ -95,12 +96,18 @@ extension AVLNode {
         }
         
         rotateRight()
+        self.adjustHeight()
+        self.left?.adjustHeight()
+        self.left?.left?.adjustHeight()
+        self.left?.right?.adjustHeight()
+        self.right?.adjustHeight()
     }
     
     func rebalanceLeft() {
         if let m = self.right {
             if let mRight = m.right, let mLeft = m.left {
                 if(mLeft.height  > mRight.height) {
+                    print("rotate right")
                     m.rotateRight()
                 }
             }
@@ -125,12 +132,17 @@ extension AVLNode {
         }
         
         rotateLeft()
+        self.adjustHeight()
+        self.left?.adjustHeight()
+        self.right?.adjustHeight()
+        self.right?.left?.adjustHeight()
+        self.right?.right?.adjustHeight()
     }
     
     func adjustHeight() {
         if(left == nil && right == nil) { height = 1 }
-        else if(left != nil && right == nil) { height = left!.height }
-        else if(left == nil && right != nil) { height = right!.height }
+        else if(left != nil && right == nil) { height = left!.height + 1 }
+        else if(left == nil && right != nil) { height = right!.height + 1 }
         else {
             height = 1 + Swift.max(left!.height, right!.height)
         }
@@ -141,7 +153,7 @@ extension AVLNode {
             
             let rightNodeLeft   = rightNode.left
             let selfParent      = self.parent
-        
+            
             var isRightNode = true
             if(self === self.parent?.left) {
                 isRightNode = false

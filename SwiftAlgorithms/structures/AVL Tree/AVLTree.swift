@@ -117,6 +117,12 @@ class AVLNode<T:Comparable,U> {
             return y?.parent
         }
     }
+    
+    func getRoot() -> AVLNode {
+        var cur = self
+        while(cur.parent != nil) { cur = cur.parent! }
+        return cur
+    }
 }
 
 
