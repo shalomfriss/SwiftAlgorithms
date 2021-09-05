@@ -23,10 +23,11 @@ class AVLTreeBalanceTests: XCTestCase {
         //let tree = AVLNode(nil, nil, nil, 400,  400).getRandomTree()
         
         let root = AVLNode<Int, Int>(nil, nil, nil, Int.random(in: 0...1000), 1)
-        for _ in 1...20 {
+        for _ in 1...5 {
             let temp = AVLNode<Int, Int>(nil, nil, nil, Int.random(in: 0...1000), 1)
-            root.avlInsert(aNode: temp)
+            
             print("------------")
+            root.avlInsert(aNode: temp)
             print(root.getRoot().asString)
             do {
                 try root.inOrderCheckBalanced(root)

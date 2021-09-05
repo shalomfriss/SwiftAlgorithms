@@ -46,9 +46,9 @@ class AVLTreeRotationTests: XCTestCase {
      
      */
     func testRotateLeft() {
-        let tree = AVLNode<Int, Int>.getPredictableTree()
+        let tree = AVLNode<Int, Int>.avlCreatePredictableTree()
         var node = tree.search(aKey: 20)
-        node?.rotateLeft()
+        node?.avlRotateLeft()
                 
         //Check root
         XCTAssertEqual(tree.left?.key, 7)
@@ -137,9 +137,9 @@ class AVLTreeRotationTests: XCTestCase {
      
      */
     func testRotateRight() {
-        let tree = AVLNode<Int, Int>.getPredictableTree()
+        let tree = AVLNode<Int, Int>.avlCreatePredictableTree()
         var node = tree.search(aKey: 20)
-        node?.rotateRight()
+        node?.avlRotateRight()
         
         //Check root
         XCTAssertEqual(tree.left?.key, 7)
@@ -228,9 +228,9 @@ class AVLTreeRotationTests: XCTestCase {
         4   6  9    11
      */
     func testRotateRootLeft() {
-        let tree = AVLNode<Int, Int>.getPredictableTree()
+        let tree = AVLNode<Int, Int>.avlCreatePredictableTree()
         var node = tree.search(aKey: 15)
-        node?.rotateLeft()
+        node?.avlRotateLeft()
         
         if let root = node?.parent {
             //root
@@ -321,9 +321,9 @@ class AVLTreeRotationTests: XCTestCase {
                             16    18  22    25
      */
     func testRotateRootRight() {
-        let tree = AVLNode<Int, Int>.getPredictableTree()
+        let tree = AVLNode<Int, Int>.avlCreatePredictableTree()
         var node = tree.search(aKey: 15)
-        node?.rotateRight()
+        node?.avlRotateRight()
         
         if let root = node?.parent {
             //Root

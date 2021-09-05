@@ -10,7 +10,7 @@ import Foundation
 
 //MARK:- AVL tree ops
 extension AVLNode {
-    func getRandomTree() -> AVLNode<Int, Int> {
+    func avlCreateRandomTree() -> AVLNode<Int, Int> {
         let root = AVLNode<Int, Int>(nil, nil, nil, Int.random(in: 0...1000), 1)
         for _ in 1...20 {
             let temp = AVLNode<Int, Int>(nil, nil, nil, Int.random(in: 0...1000), 1)
@@ -31,7 +31,7 @@ extension AVLNode {
          4   6  9    11  16    18  22    25
      */
     /// - Returns: AVLNode
-    public static func getPredictableTree() -> AVLNode<Int, Int> {
+    public static func avlCreatePredictableTree() -> AVLNode<Int, Int> {
         let nodeKeys = [7, 20, 5, 10, 17, 24, 4, 6, 9, 11, 16, 18, 22, 25]
         let root = AVLNode<Int, Int>(nil, nil, nil, 15, 1)
         for x in nodeKeys {
@@ -44,102 +44,87 @@ extension AVLNode {
     func avlInsert(aNode:AVLNode) {
         insert(aNode: aNode)
         let temp = search(aKey: aNode.key)
-        temp?.rebalance()
+        temp?.avlRebalance()
     }
     
     func avlDelete(aNode:AVLNode) {
         let m = self.delete(aNode: aNode)
-        m?.rebalance()
+        m?.avlRebalance()
     }
     
-    func rebalance() {
+    func avlRebalance() {
         let currentParent = self.parent
         if(left == nil && right != nil) {
             if(right!.height > 2) {
-                rebalanceLeft()
+                print("re-left")
+                print(self.getRoot().asString)
+                avlRebalanceLeft()
+                print(self.getRoot().asString)
             }
         } else if(left != nil && right == nil) {
             if(left!.height > 2) {
-                rebalanceRight()
+                print("re-right")
+                print(self.getRoot().asString)
+                avlRebalanceRight()
+                print(self.getRoot().asString)
             }
         } else {
             if let left = left, let right = right {
-                if(left.height > right.height + 1) { rebalanceRight() }
-                if(right.height > left.height + 1) { rebalanceLeft() }
-            }
-        }
-        
-        adjustHeight()
-        currentParent?.rebalance()
-    }
-    
-    func rebalanceRight() {
-        if let m = self.left {
-            if let mRight = m.right, let mLeft = m.left {
-                if(mRight.height > mLeft.height ) {
-                    print("rotate left")
-                    m.rotateLeft()
+                if(left.height > right.height + 1) {
+                    print("re-right")
+                    print(self.getRoot().asString)
+                    avlRebalanceRight()
+                    print(self.getRoot().asString)
+                }
+                if(right.height > left.height + 1) {
+                    print("re-left")
+                    print(self.getRoot().asString)
+                    avlRebalanceLeft()
+                    print(self.getRoot().asString)
                 }
             }
-            
-//            if(m.left == nil && m.right != nil) {
-//                    m.rotateLeft()
-//            } else {
-//                if let mRight = m.right, let mLeft = m.left {
-//                    if(mRight.height > mLeft.height ) {
-//                        m.rotateLeft()
-//                    } else {
-//                        m.rotateRight()
-//                    }
-//                }
-//            }
         }
         
-        rotateRight()
-        self.adjustHeight()
-        self.left?.adjustHeight()
-        self.left?.left?.adjustHeight()
-        self.left?.right?.adjustHeight()
-        self.right?.adjustHeight()
+        avlAdjustHeight()
+        currentParent?.avlRebalance()
     }
     
-    func rebalanceLeft() {
-        if let m = self.right {
-            if let mRight = m.right, let mLeft = m.left {
-                if(mLeft.height  > mRight.height) {
-                    print("rotate right")
-                    m.rotateRight()
-                }
+    func avlRebalanceRight() {
+        let m = self.left
+        if let mRight = m?.right, let mLeft = m?.left {
+            if(mRight.height > mLeft.height ) {
+                print("rotate left")
+                m?.avlRotateLeft()
             }
-            
-//            if(m.left != nil && m.right == nil) {
-//                if(m.left!.height > 1) {
-//                    m.rotateRight()
-//                }
-//            } else if(m.left == nil && m.right != nil) {
-//                if(m.right!.height > 1) {
-//                    m.rotateLeft()
-//                }
-//            } else {
-//                if let mRight = m.right, let mLeft = m.left {
-//                    if(mRight.height  > mLeft.height) {
-//                        m.rotateLeft()
-//                    } else {
-//                        m.rotateRight()
-//                    }
-//                }
-//            }
         }
+
         
-        rotateLeft()
-        self.adjustHeight()
-        self.left?.adjustHeight()
-        self.right?.adjustHeight()
-        self.right?.left?.adjustHeight()
-        self.right?.right?.adjustHeight()
+        avlRotateRight()
+        self.avlAdjustHeight()
+        self.left?.avlAdjustHeight()
+        self.left?.left?.avlAdjustHeight()
+        self.left?.right?.avlAdjustHeight()
+        self.right?.avlAdjustHeight()
     }
     
-    func adjustHeight() {
+    func avlRebalanceLeft() {
+        let m = self.right
+        if let mRight = m?.right, let mLeft = m?.left {
+            if(mLeft.height  > mRight.height) {
+                print("rotate right")
+                m?.avlRotateRight()
+            }
+        }
+        
+        avlRotateLeft()
+        self.avlAdjustHeight()
+        self.left?.avlAdjustHeight()
+        self.right?.avlAdjustHeight()
+        self.right?.left?.avlAdjustHeight()
+        self.right?.right?.avlAdjustHeight()
+    }
+    
+    func avlAdjustHeight() {
         if(left == nil && right == nil) { height = 1 }
         else if(left != nil && right == nil) { height = left!.height + 1 }
         else if(left == nil && right != nil) { height = right!.height + 1 }
@@ -148,7 +133,7 @@ extension AVLNode {
         }
     }
     
-    func rotateLeft() {
+    func avlRotateLeft() {
         if let rightNode = self.right {
             
             let rightNodeLeft   = rightNode.left
@@ -169,18 +154,18 @@ extension AVLNode {
             else { rightNode.parent?.left = rightNode }
             
 
-            self.right?.adjustHeight()
-            self.left?.adjustHeight()
-            self.adjustHeight()
+            self.right?.avlAdjustHeight()
+            self.left?.avlAdjustHeight()
+            self.avlAdjustHeight()
 
-            rightNode.right?.adjustHeight()
-            rightNode.left?.adjustHeight()
-            rightNode.adjustHeight()
-            rightNode.parent?.adjustHeight()
+            rightNode.right?.avlAdjustHeight()
+            rightNode.left?.avlAdjustHeight()
+            rightNode.avlAdjustHeight()
+            rightNode.parent?.avlAdjustHeight()
         }
     }
     
-    func rotateRight() {
+    func avlRotateRight() {
         if let leftNode = self.left {
             let leftNodeRight   = leftNode.right
             let selfParent      = self.parent
@@ -200,37 +185,14 @@ extension AVLNode {
             if(isRightNode) { leftNode.parent?.right = leftNode }
             else { leftNode.parent?.left = leftNode }
             
-            self.right?.adjustHeight()
-            self.left?.adjustHeight()
-            self.adjustHeight()
+            self.right?.avlAdjustHeight()
+            self.left?.avlAdjustHeight()
+            self.avlAdjustHeight()
             
-            leftNode.right?.adjustHeight()
-            leftNode.left?.adjustHeight()
-            leftNode.adjustHeight()
-            leftNode.parent?.adjustHeight()
+            leftNode.right?.avlAdjustHeight()
+            leftNode.left?.avlAdjustHeight()
+            leftNode.avlAdjustHeight()
+            leftNode.parent?.avlAdjustHeight()
         }
     }
-    
 }
-
-
-
-/*
- 
-     606
- ____/ \___
-42         620
- \           \
-  72         764
- /  \        / \
-51    586  655   822
-     /    /     / \
-  470  640   772   866
-  /            \     \
-305             802   942
-/ \                   /
-304   435             897
-/     /
-275   307
- 
- */
